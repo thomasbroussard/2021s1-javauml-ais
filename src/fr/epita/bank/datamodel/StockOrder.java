@@ -5,4 +5,7 @@ public class StockOrder {
 	private int quantity;
 	private double commission;
 
+	private Stock stock;
+	private InvestmentAccount account;
+
 }

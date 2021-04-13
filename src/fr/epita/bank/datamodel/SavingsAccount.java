@@ -1,5 +1,6 @@
 package fr.epita.bank.datamodel;
 
-public class SavingsAccount {
-	double interrestRate;
+public class SavingsAccount extends Account {
+	private double interrestRate;
+
 }
