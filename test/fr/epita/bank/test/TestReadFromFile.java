@@ -5,8 +5,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import fr.epita.bank.datamodel.Customer;
+import fr.epita.bank.datamodel.SavingsAccount;
 
 public class TestReadFromFile {
 
@@ -20,8 +24,15 @@ public class TestReadFromFile {
 
 		//Read using FileInputStream + Scanner
 		//loadingFromFileInputStream();
-		List<String> strings = Files.readAllLines(new File("./test/customers.csv").toPath());
-		System.out.println(strings);
+		List<String> lines = Files.readAllLines(new File("./test/customers.csv").toPath());
+		List<Customer> customers = new ArrayList<>();
+		List<SavingsAccount> savingsAccounts = new ArrayList<>();
+		for (String line : lines){
+			String[] split = line.split(";");
+			System.out.println(split[0]);
+			Customer currentCustomer = new Customer();
+			customers.add(currentCustomer);
+		}
 
 	}
 
