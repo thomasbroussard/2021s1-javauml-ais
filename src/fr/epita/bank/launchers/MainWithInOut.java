@@ -1,5 +1,6 @@
 package fr.epita.bank.launchers;
 
+import java.io.BufferedInputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,6 +8,7 @@ public class MainWithInOut {
 
 
 	public static void main(String[] args) {
+
 		Scanner scanner = new Scanner(System.in);
 		int num1 = 0;
 		int num2 = 0;
@@ -21,5 +23,6 @@ public class MainWithInOut {
 		}
 		System.out.println(num1);
 		System.out.println(num2);
+		scanner.close();
 	}
 }
