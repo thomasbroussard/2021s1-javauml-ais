@@ -26,12 +26,16 @@ public class TestReadFromFile {
 		//loadingFromFileInputStream();
 		List<String> lines = Files.readAllLines(new File("./test/customers.csv").toPath());
 		List<Customer> customers = new ArrayList<>();
-		List<SavingsAccount> savingsAccounts = new ArrayList<>();
 		for (String line : lines){
-			String[] split = line.split(";");
-			System.out.println(split[0]);
+			String[] parts = line.split(";");
+			System.out.println(parts[0]);
 			Customer currentCustomer = new Customer();
+			currentCustomer.setName(parts[0]);
+			currentCustomer.setAddress(parts[1]);
 			customers.add(currentCustomer);
+			SavingsAccount account = new SavingsAccount();
+			account.setBalance(Double.valueOf(parts[2]));
+			currentCustomer.setSavingsAccount(account);
 		}
 
 	}

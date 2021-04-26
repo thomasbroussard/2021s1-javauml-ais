@@ -2,6 +2,7 @@ package fr.epita.bank.datamodel;
 
 
 public class Customer {
+	SavingsAccount savingsAccount;
 	private String name;
 	private String address;
 
@@ -22,5 +23,13 @@ public class Customer {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public SavingsAccount getSavingsAccount() {
+		return savingsAccount;
+	}
+
+	public void setSavingsAccount(SavingsAccount savingsAccount) {
+		this.savingsAccount = savingsAccount;
 	}
 }
