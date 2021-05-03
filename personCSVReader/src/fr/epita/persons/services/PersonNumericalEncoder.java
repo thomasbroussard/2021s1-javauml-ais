@@ -1,7 +1,9 @@
 package fr.epita.persons.services;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import fr.epita.persons.datamodel.Person;
 
@@ -13,6 +15,10 @@ public class PersonNumericalEncoder {
 		sexEncoding.put("F",1);
 	}
 
+	public static int[][] encode(List<Person> persons){
+		return persons.stream()
+				.map(PersonNumericalEncoder::encode).toArray(int[][]::new);
+	}
 
 	public static int[] encode(Person person) throws IllegalArgumentException {
 		int[] result = new int[4];
