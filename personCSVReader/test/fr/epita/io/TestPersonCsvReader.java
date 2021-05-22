@@ -21,7 +21,10 @@ public class TestPersonCsvReader {
 		List<Person> females = persons.stream()
 				.filter(p -> p.getSex().equals("F"))
 				.collect(Collectors.toList());
-		System.out.println(persons);
+		
+		System.out.println("males : " + males.size());
+		System.out.println("females : " + females.size());
+
 	}
 
 
