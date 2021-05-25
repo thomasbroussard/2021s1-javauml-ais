@@ -26,23 +26,14 @@ public class MnistReaderTest {
 		int data_line_length = parts.length - 1;
 		System.out.println(Math.sqrt(data_line_length));
 
-		String[][] matrix = new String[IMAGE_HEIGHT][IMAGE_WIDTH];
+
 
 		//for int i = 0 to i = 27
 			// for int j = 0 to j = 27
 				// matrix[i][j] = parts[i * 28 + j]
 
-		for (int i = 0; i < IMAGE_HEIGHT; i ++){
-			for (int j = 0; j < IMAGE_WIDTH; j++){
-				matrix[i][j]  = parts[i * IMAGE_HEIGHT + j];
-				String display = "..";
-				if (Double.parseDouble(matrix[i][j]) > 100){
-					display = "xx";
-				}
-				System.out.print(display);
-			}
-			System.out.println();
-		}
+		double[][] matrix = convertToMatrix(parts);
+		System.out.println(displayMatrix(matrix));
 
 		System.out.println(label);
 
@@ -50,6 +41,32 @@ public class MnistReaderTest {
 
 
 
+	}
+
+	private static double[][] convertToMatrix(String[] parts) {
+		double[][] matrix = new double[IMAGE_HEIGHT][IMAGE_WIDTH];
+		for (int i = 0; i < IMAGE_HEIGHT; i ++){
+			for (int j = 0; j < IMAGE_WIDTH; j++){
+				matrix[i][j]  = Double.parseDouble(parts[i * IMAGE_HEIGHT + j]);
+			}
+			System.out.println();
+		}
+		return matrix;
+	}
+
+	private static String displayMatrix(double[][] matrix){
+		String result = "";
+		for (int i = 0; i < matrix.length; i ++) {
+			for (int j = 0; j < matrix[i].length; j++) {
+				String display = "..";
+				if (matrix[i][j] > 100){
+					display = "xx";
+				}
+				result += display;
+			}
+			result += "\n";
+		}
+		return result;
 	}
 
 }
